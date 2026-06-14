@@ -1,61 +1,87 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>심재윤 웹명함</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>심재윤 웹명함</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <main class="card">
-    <div class="profile-image-wrap">
-      <!-- profile.jpg 파일을 index.html과 같은 폴더에 넣으면 됩니다 -->
-      <img
-        class="profile-image"
-        src="profile.jpg"
-        alt="프로필 이미지"
-        onerror="this.src='https://via.placeholder.com/300x300/f1f5f9/94a3b8?text=PROFILE';"
-      />
-    </div>
 
-    <!-- 이름 -->
-    <h1 class="name">심재윤</h1>
+    <main class="card">
 
-    <!-- 직군 -->
-    <p class="job">Game Business PM · Service Operations</p>
-
-    <section class="info-list">
-      <!-- 이메일 -->
-      <a class="info-item" href="mailto:example@email.com">
-        <div class="icon">✉️</div>
-        <div class="info-text">
-          <div class="label">Email</div>
-          <div class="value">example@email.com</div>
+        <div class="profile-image-wrap">
+            <img
+                id="profileImage"
+                class="profile-image"
+                src="profile.jpg"
+                alt="프로필 이미지"
+            >
         </div>
-      </a>
 
-      <!-- 전화번호 -->
-      <a class="info-item" href="tel:01012345678">
-        <div class="icon">📞</div>
-        <div class="info-text">
-          <div class="label">Phone</div>
-          <div class="value">010-1234-5678</div>
+        <h1 class="name">심재윤</h1>
+
+        <p class="job">
+            Game Business PM · Service Operations
+        </p>
+
+        <section class="info-list">
+
+            <!-- 이메일 -->
+            <a
+                class="info-item email-copy"
+                href="mailto:abc123@gmail.com"
+                data-email="abc123@gmail.com"
+            >
+                <div class="icon">✉️</div>
+
+                <div class="info-text">
+                    <div class="label">Email</div>
+                    <div class="value">abc123@gmail.com</div>
+                </div>
+            </a>
+
+            <!-- 전화번호 -->
+            <a
+                class="info-item"
+                href="tel:01012345678"
+            >
+                <div class="icon">📞</div>
+
+                <div class="info-text">
+                    <div class="label">Phone</div>
+                    <div class="value">010-1234-5678</div>
+                </div>
+            </a>
+
+        </section>
+
+        <div class="button-area">
+
+            <a
+                class="button primary"
+                href="mailto:abc123@gmail.com"
+            >
+                이메일 보내기
+            </a>
+
+            <a
+                class="button secondary"
+                href="tel:01012345678"
+            >
+                전화하기
+            </a>
+
         </div>
-      </a>
-    </section>
 
-    <div class="button-area">
-      <a class="button primary" href="mailto:example@email.com">
-        이메일 보내기
-      </a>
+        <p class="footer">
+            Digital Business Card
+        </p>
 
-      <a class="button secondary" href="tel:01012345678">
-        전화하기
-      </a>
-    </div>
+    </main>
 
-    <p class="footer">Digital Business Card</p>
-  </main>
+    <script src="script.js"></script>
+
 </body>
 </html>
