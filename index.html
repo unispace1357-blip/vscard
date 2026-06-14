@@ -1,87 +1,114 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>심재윤 웹명함</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>심재윤 웹명함</title>
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <main class="card">
+  <main class="card">
 
-        <div class="profile-image-wrap">
-            <img
-                id="profileImage"
-                class="profile-image"
-                src="profile.jpg"
-                alt="프로필 이미지"
-            >
+    <div class="profile-image-wrap">
+      <img
+        id="profileImage"
+        class="profile-image"
+        src="profile.jpg"
+        alt="프로필 이미지"
+      >
+    </div>
+
+    <h1 class="name">심재윤</h1>
+
+    <p class="job">Game Business PM · Service Operations</p>
+
+    <p class="status-message">
+      유저 경험 분석과 데이터 기반 의사결정으로 발전하는 사업 PM입니다.
+    </p>
+
+    <section class="info-list">
+
+      <button
+        type="button"
+        class="info-item email-copy"
+        data-email="unispace1357@gmail.com"
+        aria-label="이메일 주소 복사"
+      >
+        <div class="icon">✉️</div>
+
+        <div class="info-text">
+          <div class="label">Email</div>
+          <div class="value">unispace1357@gmail.com</div>
         </div>
+      </button>
 
-        <h1 class="name">심재윤</h1>
+      <button
+        type="button"
+        class="info-item contact-save"
+        aria-label="연락처 저장"
+      >
+        <div class="icon">📞</div>
 
-        <p class="job">
-            Game Business PM · Service Operations
-        </p>
-
-        <section class="info-list">
-
-            <!-- 이메일 -->
-            <a
-                class="info-item email-copy"
-                href="mailto:abc123@gmail.com"
-                data-email="abc123@gmail.com"
-            >
-                <div class="icon">✉️</div>
-
-                <div class="info-text">
-                    <div class="label">Email</div>
-                    <div class="value">abc123@gmail.com</div>
-                </div>
-            </a>
-
-            <!-- 전화번호 -->
-            <a
-                class="info-item"
-                href="tel:01012345678"
-            >
-                <div class="icon">📞</div>
-
-                <div class="info-text">
-                    <div class="label">Phone</div>
-                    <div class="value">010-1234-5678</div>
-                </div>
-            </a>
-
-        </section>
-
-        <div class="button-area">
-
-            <a
-                class="button primary"
-                href="mailto:abc123@gmail.com"
-            >
-                이메일 보내기
-            </a>
-
-            <a
-                class="button secondary"
-                href="tel:01012345678"
-            >
-                전화하기
-            </a>
-
+        <div class="info-text">
+          <div class="label">Phone</div>
+          <div class="value">010-2491-3498</div>
         </div>
+      </button>
 
-        <p class="footer">
-            Digital Business Card
-        </p>
+    </section>
 
-    </main>
+    <div class="button-area">
+      <a
+        class="button primary"
+        href="mailto:unispace1357@gmail.com"
+      >
+        이메일 보내기
+      </a>
 
-    <script src="script.js"></script>
+      <a
+        class="button secondary"
+        href="tel:01024913498"
+      >
+        전화하기
+      </a>
+    </div>
+
+    <a
+      class="square-button github-button"
+      href="https://github.com/unispace1357-blip/vscard"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      ♥Github
+    </a>
+
+    <a
+      class="square-button portfolio-button"
+      href="https://drive.google.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      대표 포트폴리오 열람
+    </a>
+
+    <a
+      class="square-button portfolio-button"
+      href="https://drive.google.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      포트폴리오 보기
+    </a>
+
+    <p class="footer">
+      Digital Business Card
+    </p>
+
+  </main>
+
+  <script src="script.js"></script>
 
 </body>
 </html>

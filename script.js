@@ -1,7 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
   const profileImage = document.getElementById("profileImage");
   const card = document.querySelector(".card");
-  const emailLink = document.querySelector('a[href^="mailto:"]');
+  const emailButtons = document.querySelectorAll(".email-copy");
+  const contactSaveButton = document.querySelector(".contact-save");
+
+  const contact = {
+    name: "심재윤",
+    phone: "010-2491-3498",
+    email: "unispace1357@gmail.com",
+    job: "Game Business PM · Service Operations"
+  };
 
   if (profileImage) {
     profileImage.addEventListener("error", function () {
@@ -21,23 +29,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (emailLink) {
-    emailLink.addEventListener("click", function (event) {
-      event.preventDefault();
+  emailButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const email = button.dataset.email || contact.email;
+      copyToClipboard(email, "이메일 주소가 복사되었습니다.");
+    });
+  });
 
-      const emailText = emailLink
-        .getAttribute("href")
-        .replace("mailto:", "")
-        .trim();
-
-      copyToClipboard(emailText);
+  if (contactSaveButton) {
+    contactSaveButton.addEventListener("click", function () {
+      downloadContact(contact);
     });
   }
 });
 
-function copyToClipboard(text) {
+function copyToClipboard(text, successMessage) {
   if (!text) {
-    alert("복사할 이메일 주소가 없습니다.");
+    alert("복사할 내용이 없습니다.");
     return;
   }
 
@@ -45,17 +53,17 @@ function copyToClipboard(text) {
     navigator.clipboard
       .writeText(text)
       .then(function () {
-        alert("이메일 주소가 복사되었습니다.");
+        alert(successMessage);
       })
       .catch(function () {
-        fallbackCopyText(text);
+        fallbackCopyText(text, successMessage);
       });
   } else {
-    fallbackCopyText(text);
+    fallbackCopyText(text, successMessage);
   }
 }
 
-function fallbackCopyText(text) {
+function fallbackCopyText(text, successMessage) {
   const textArea = document.createElement("textarea");
 
   textArea.value = text;
@@ -69,10 +77,35 @@ function fallbackCopyText(text) {
 
   try {
     document.execCommand("copy");
-    alert("이메일 주소가 복사되었습니다.");
+    alert(successMessage);
   } catch (error) {
-    alert("복사에 실패했습니다. 이메일 주소를 직접 복사해주세요.");
+    alert("복사에 실패했습니다. 내용을 직접 복사해주세요.");
   }
 
   document.body.removeChild(textArea);
+}
+
+function downloadContact(contact) {
+  const vCardContent = [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    "N:" + contact.name + ";;;;",
+    "FN:" + contact.name,
+    "TITLE:" + contact.job,
+    "TEL;TYPE=CELL:" + contact.phone,
+    "EMAIL;TYPE=INTERNET:" + contact.email,
+    "END:VCARD"
+  ].join("
+");
+
+  const blob = new Blob([vCardContent], { type: "text/vcard;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = "sim-jaeyoon-contact.vcf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
 }

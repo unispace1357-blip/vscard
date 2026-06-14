@@ -24,6 +24,7 @@ body {
   box-shadow: 0 24px 55px rgba(0, 0, 0, 0.45);
   border: 1px solid #b4d641;
   text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .profile-image-wrap {
@@ -61,7 +62,16 @@ body {
   background: rgba(180, 214, 65, 0.12);
   padding: 8px 14px;
   border-radius: 999px;
-  margin-bottom: 26px;
+  margin-bottom: 14px;
+}
+
+.status-message {
+  margin: 0 auto 24px;
+  max-width: 310px;
+  color: #dbeafe;
+  font-size: 13px;
+  line-height: 1.6;
+  word-break: keep-all;
 }
 
 .info-list {
@@ -72,6 +82,7 @@ body {
 }
 
 .info-item {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -82,6 +93,8 @@ body {
   text-decoration: none;
   color: #e5e7eb;
   transition: 0.25s ease;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 .info-item:hover {
@@ -123,16 +136,23 @@ body {
 .button-area {
   display: flex;
   gap: 10px;
+  margin-bottom: 12px;
+}
+
+.button,
+.square-button {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.25s ease;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 .button {
   flex: 1;
   padding: 14px 12px;
   border-radius: 15px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
-  transition: 0.25s ease;
 }
 
 .primary {
@@ -146,9 +166,32 @@ body {
   border: 1px solid rgba(180, 214, 65, 0.35);
 }
 
-.button:hover {
+.square-button {
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  margin-top: 10px;
+  background: #252525;
+  color: #f8fafc;
+  border: 1px solid rgba(180, 214, 65, 0.5);
+}
+
+.github-button {
+  color: #b4d641;
+}
+
+.portfolio-button {
+  color: #ffffff;
+}
+
+.button:hover,
+.square-button:hover {
   transform: translateY(-2px);
   opacity: 0.92;
+  border-color: #b4d641;
 }
 
 .footer {
